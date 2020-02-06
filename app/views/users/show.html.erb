@@ -1,0 +1,14 @@
+<% provide(:title, @user.name) %>
+<div class="user">
+  <h1><%= @user.name %></h1>
+</div>
+
+<ol class="tweets">
+  <% @tweets.each do |tweet| %>
+    <li>
+      <%= tweet.comment %>
+      <%= tweet.content %>
+    </li>
+  <% end %>
+</ol>
+  

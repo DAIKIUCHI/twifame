@@ -1,0 +1,19 @@
+<ul>
+  <%if user_signed_in? %>
+    <li><%= current_user.email %></li>
+    
+    <li><%= current_user.name %></li>
+    <li><%= current_user.nickname %></li>
+    <li><%= image_tag current_user.image%></li>
+    
+    <% current_user.tweets.each do |tweet| %>
+      <li><%= tweet.comment %></li>
+    <% end%>
+
+    
+      
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  <%else%>
+    <li><%= link_to "ログイン", new_user_session_path %></li>
+  <%end%>
+</ul>

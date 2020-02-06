@@ -1,0 +1,10 @@
+<% provide(:title, "コメント履歴") %>
+<h3>回答したツイート</h3>
+<ul class="tweets">
+  <% @tweets.each do |tweet| %>
+    <li>
+      <%= link_to tweet.comment, tweet %>
+      <%= link_to tweet.content, tweet %>
+    </li>
+  <% end %>
+</ul>

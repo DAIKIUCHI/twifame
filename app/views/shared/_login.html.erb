@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default">
+  <%= render 'shared/nav_header' %>
+  
+  <div id="gnavi" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><%=link_to "●●とは", static_pages_about_path %></li>
+      <li><%=link_to "よくある質問", static_pages_faq_path %></a></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </ul>
+  </div>
+</nav>
+    

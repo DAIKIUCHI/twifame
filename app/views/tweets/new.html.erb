@@ -1,0 +1,21 @@
+
+<% provide(:title, "コメント") %>
+<div class="field">
+  <%= form_for(@tweet) do |f| %>
+    <%= f.label "らべる" %>
+    <%= f.text_area :comment %>
+    <%= f.text_area :content, readonly: true, value: @tweet_text %>
+    <%= f.submit %>
+    <div class="row center">
+        <div class="row">
+          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test0.png" %><%= image_tag "test1.png" %></label></div>
+          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "test1.png" %></label></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "test2.png" %></label></div>
+          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "test3.png" %></label></div>
+        </div>
+    </div> 
+  <% end %>
+</div>
+

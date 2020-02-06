@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+  <body>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>   
+    <% if user_signed_in? %>
+      <%= render 'shared/login' %>
+    <% else %>
+      <%= render 'shared/logout' %>
+    <% end %> 
+    <div class="container">
+      <%if user_signed_in? %>
+        <%= current_user.nickname %>/ 
+        <%= current_user.name %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

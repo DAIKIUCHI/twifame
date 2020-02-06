@@ -1,0 +1,8 @@
+<% provide(:title, "●●とは") %>
+<h1>●●とは</h1>
+
+<%if user_signed_in? %>
+<p><%= link_to "マイページ", static_pages_home_path %></p>
+<% else%>
+<p><%= link_to "ホーム", static_pages_home_path %></p>
+<% end %>

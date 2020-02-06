@@ -1,0 +1,14 @@
+<% provide(:title, "リプライ") %>
+<div class="container">
+  <p>コメントするリプライを選択する</p>
+  <ul class="reply">
+    <% @reply.each do |tweet| %>
+      <%= form_tag(new_tweet_path, method: :get) do %>
+        <li>
+          <%= text_field_tag :content, tweet.text, :size=>"60" %>
+          <%= submit_tag "コメント" %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
