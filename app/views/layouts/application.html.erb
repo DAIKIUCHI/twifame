@@ -13,10 +13,6 @@
       <%= render 'shared/logout' %>
     <% end %> 
     <div class="container">
-      <%if user_signed_in? %>
-        <%= current_user.nickname %>/ 
-        <%= current_user.name %>
-      <% end %>
       <%= yield %>
     </div>
   </body>

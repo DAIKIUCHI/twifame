@@ -52,6 +52,10 @@ p {
   line-height: 1.7em;
 }
 
+label {
+  display: inline;
+}
+
 /* header */
 
 #logo {
@@ -81,6 +85,12 @@ input[type="radio"] {
 }
 
 img {
-  width: 95%;
+  width: 90%;
   height: auto;
+}
+
+#icon {
+  width: 10%;
+  height: auto;
+  border-radius: 50%;
 }

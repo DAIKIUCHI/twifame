@@ -1,20 +1,37 @@
 
 <% provide(:title, "コメント") %>
-<div class="field">
+<div class="form-group">
   <%= form_for(@tweet) do |f| %>
-    <%= f.label "らべる" %>
-    <%= f.text_area :comment %>
-    <%= f.submit "ツイートする" %>
-    <div class="row center">
-        <div class="row">
-          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test0.png" %><%= image_tag "test1.png" %></label></div>
-          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "test1.png" %></label></div>
-        </div>
-        <div class="row">
-          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "test2.png" %></label></div>
-          <div class="col-md-6"><label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "test3.png" %></label></div>
-        </div>
-    </div> 
+    <p><%= f.text_area :comment, rows:"5", class:"form-control" %></p>
+    <p><%= f.submit "ツイートする", class: "btn btn-info btn-lg btn-block"%></p>
+    <div class="row">
+      <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "icon1.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "icon2.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "icon3.png", id:"icon" %></label>
+      <%= image_tag "test1.png", id:"test1", style:"display: none;" %>
+      <%= image_tag "test2.png", id:"test2", style:"display: none;" %>
+      <%= image_tag "test3.png", id:"test3", style:"display: none;" %>
+    </div>
   <% end %>
 </div>
+
+<!-- ここからjQuery -->
+<script>
+$('#tweet_image_appassetsimagestest1png').on('click', function() {
+  $("#test1").show();
+  $("#test2").hide();
+  $("#test3").hide();
+});
+$('#tweet_image_appassetsimagestest2png').on('click', function() {
+  $("#test2").show();
+  $("#test1").hide();
+  $("#test3").hide();
+});
+$('#tweet_image_appassetsimagestest3png').on('click', function() {
+  $("#test3").show();
+  $("#test1").hide();
+  $("#test2").hide();
+});
+</script>
+<!-- ここまで -->
 

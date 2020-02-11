@@ -1,1 +1,43 @@
-テスト用のビューです
+<%= image_tag "test1.png", id:"a", style:"display: none;" %>
+<%= image_tag "test2.png", id:"b", style:"display: none;" %>
+<%= image_tag "test3.png", id:"c", style:"display: none;" %>
+
+<a href=""></a>
+
+<%= button_tag "image1", id:"image1"%>
+<%= button_tag "image2", id:"image2"%>
+<%= button_tag "image3", id:"image3"%>
+
+<script>
+$('#image1').on('click', function() {
+  $("#a").show();
+});
+$('#image2').on('click', function() {
+  $("#b").hide();
+});
+$('#image3').on('click', function() {
+  $("#c").hide();
+});
+</script>
+
+
+<!--
+            <script>
+              var pics_src = new Array("test1.png","test2.png","test3.png");
+              var num = -1;
+
+              slideshow_timer();
+
+              function slideshow_timer(){
+                  if (num == 2){
+                      num = 0;
+                  }
+                  else {
+                      num ++;
+                  }
+                  document.getElementById("mypic").src=pics_src[num];
+                  setTimeout("slideshow_timer()",3000);
+              }
+            </script>
+
+            -->
