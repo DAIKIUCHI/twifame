@@ -15,15 +15,15 @@ class TweetsController < ApplicationController
 
   def new
     @tweet = Tweet.new
-    @tweet_text = params[:content]
+    # @tweet_text = params[:content]
   end
   
   def create
     @tweet = current_user.tweets.build(tweet_params)
-    @tweet.picture = Image_build(@tweet.content)
+    @tweet.picture = Image_build(@tweet.comment)
     @tweet.save
     flash[:success] = "でけた"
-    @twitter.update_with_media("#{@tweet.comment}", "#{@tweet.picture.path}")
+    @twitter.update_with_media("", "#{@tweet.picture.path}")
     redirect_to @tweet
   end
 
@@ -62,7 +62,7 @@ class TweetsController < ApplicationController
     end
 
     def tweet_params
-      params.require(:tweet).permit(:comment, :content, :picture, :image)
+      params.require(:tweet).permit(:comment, :picture, :image)
     end
 
         # 設定関連の値を代入

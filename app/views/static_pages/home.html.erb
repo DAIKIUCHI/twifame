@@ -4,7 +4,7 @@
   <h3>static_pages#home</h3>
   <p>ホーム画面だお！！(о´∀`о)</p>
   <% if user_signed_in? %>
-    <p><%= link_to "リプライ一覧", reply_tweets_path %></p>
+    <p><%= link_to "ツイートする", new_tweet_path %></p>
   <% else %>
     <%= link_to "登録/ログイン", new_user_session_path, class: "btn btn-info btn-lg btn-block" %>
   <% end %>
