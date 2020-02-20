@@ -4,7 +4,48 @@
   <h3>static_pages#home</h3>
   <p>ホーム画面だお！！(о´∀`о)</p>
   <% if user_signed_in? %>
+    <p><%= image_tag current_user.image.sub(/_normal/, ''), id:"user-image" %></p>
     <p><%= link_to "ツイートする", new_tweet_path %></p>
+
+
+<div class="form-group">
+  <%= form_tag('/tweets', method: :post) do %>
+    <p><%= text_area_tag :comment, id:"text-area" %></p>
+    <div>
+      <label><%= radio_button_tag :image, "./app/assets/images/test1.png" %><%= image_tag "icon1.png", id:"icon" %></label>
+      <label><%= radio_button_tag :image, "./app/assets/images/test2.png" %><%= image_tag "icon2.png", id:"icon" %></label>
+      <label><%= radio_button_tag :image, "./app/assets/images/test3.png" %><%= image_tag "icon3.png", id:"icon" %></label>
+      <h6 id="m-top">※フレームを選択</h6>
+    </div>
+    <p class="center" id="m-top"><%= submit_tag "ツイートする", class: "btn btn-info btn-lg"%></p>
+    <div>
+      <%= image_tag "test1.png", class:"center-block", id:"test1", style:"display: none;" %>
+      <%= image_tag "test2.png", class:"center-block", id:"test2", style:"display: none;" %>
+      <%= image_tag "test3.png", class:"center-block", id:"test3", style:"display: none;" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- ここからjQuery -->
+<script>
+$('#image_._app_assets_images_test1.png').on('click', function() {
+  $("#test1").show();
+  $("#test2").hide();
+  $("#test3").hide();
+});
+$('#image_._app_assets_images_test2.png').on('click', function() {
+  $("#test2").show();
+  $("#test1").hide();
+  $("#test3").hide();
+});
+$('#image_._app_assets_images_test3.png').on('click', function() {
+  $("#test3").show();
+  $("#test1").hide();
+  $("#test2").hide();
+});
+</script>
+<!-- ここまで -->
+
   <% else %>
     <%= link_to "登録/ログイン", new_user_session_path, class: "btn btn-info btn-lg btn-block" %>
   <% end %>

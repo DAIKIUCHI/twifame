@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root 'static_pages#home'
+  # root 'static_pages#home'
+  root 'tweets#new'
   get 'static_pages/home'
   get 'static_pages/faq'
   get 'static_pages/about'

@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_twitter_client#, only: [:reply, :show, :response]
+  before_action :set_twitter_client, only: [:create]
 
   # BASE_IMAGE_PATH = './app/assets/images/test3.png'.freeze
   # BASE_IMAGE_PATH = @tweet.picture.path

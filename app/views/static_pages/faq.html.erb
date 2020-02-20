@@ -1,9 +1,8 @@
 <% provide(:title, "よくある質問") %>
-<h3>StaticPages#faq</h3>
-<p>よくある質問を追加するお！！</p>
+<h5>いやいや、質問なんてまだなんもねーっす！泣</h5>
 
 <%if user_signed_in? %>
-<p><%= link_to "マイページ", static_pages_home_path %></p>
+<p><%= link_to "マイページへおもどりください", root_path %></p>
 <% else%>
-<p><%= link_to "ホーム", static_pages_home_path %></p>
+<p><%= link_to "ホームへおもどりください", root_path %></p>
 <% end %>
