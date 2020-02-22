@@ -91,7 +91,7 @@ input[type="radio"] {
   display: none;
 }
 
-input[type=text] {
+input[type="text"] {
 	font-size: 16px;
 }
 
@@ -136,7 +136,7 @@ img {
 }
 
 .message {
-  font-size: 14px;
+  font-size: 16px;
   color: #777;
   margin-bottom: 30px;
 }
@@ -149,7 +149,7 @@ span {
   margin: 15px;
 }
 
-// .note {
-//   font-size: 12px;
-// }
+#tweet-area {
+  font-size: 16px;
+}
 

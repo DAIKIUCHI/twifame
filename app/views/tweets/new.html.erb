@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <%= form_for(@tweet) do |f| %>
-      <%= f.text_area :comment, rows:"8", class:"form-control" %>
+      <%= f.text_area :comment, rows:"8", class:"form-control", id:"tweet-area"%>
       <div>
         <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "icon1.png", id:"icon" %></label>
         <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "icon2.png", id:"icon" %></label>
