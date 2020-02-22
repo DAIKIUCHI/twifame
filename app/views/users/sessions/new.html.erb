@@ -1,7 +1,12 @@
-<p>ここからログイン画面します</p>
+<h4>これからTwitterと連携します。</h4>
+<h5 class="profile">
+※一度許可しても、<%= link_to "こちら", 'https://twitter.com/settings/applications'  %>から
+「アクセス権を取り消す」を押すことでいつでも止めることができます。
+</h5>
+
 <%= render "users/shared/links" %>
 
-<p><%= link_to "やめとく", static_pages_home_path %></p>
+
 
 <!--
 <% if false %>

@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   # BASE_IMAGE_PATH = @tweet.picture.path
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
-  FONT = './app/assets/fonts/komorebi-gothic.ttf'.freeze
+  FONT = './app/assets/fonts/font.ttf'.freeze
   ROW_LIMIT = 8
 
   def reply
