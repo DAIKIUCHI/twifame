@@ -20,8 +20,8 @@ class User < ApplicationRecord
         name: auth.info.name,
         nickname: auth.info.nickname,
         location: auth.info.location,
-        token: auth.credentials.token,
-        secret: auth.credentials.secret
+        token: Rails.application.message_verifier('secret_key').generate({ token: auth.credentials.token }),
+        secret: Rails.application.message_verifier('secret_key').generate({ token: auth.credentials.secret })
       )
     end
   
@@ -34,3 +34,5 @@ class User < ApplicationRecord
     "#{auth.uid}-#{auth.provider}@example.com"
   end
 end
+
+Rails.application.message_verifier('secret_key').generate({ token: 'i am bob' })

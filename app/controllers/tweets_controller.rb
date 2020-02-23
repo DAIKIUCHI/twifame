@@ -55,8 +55,8 @@ class TweetsController < ApplicationController
       @twitter = Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV["TWITTER_API_KEY"]
         config.consumer_secret     = ENV["TWITTER_API_SECRET_KEY"]
-        config.access_token        = current_user.token
-        config.access_token_secret = current_user.secret
+        config.access_token        = Rails.application.message_verifier('secret_key').verify(current_user.token)[:token]
+        config.access_token_secret = Rails.application.message_verifier('secret_key').verify(current_user.secret)[:token]
       end
     end
 
