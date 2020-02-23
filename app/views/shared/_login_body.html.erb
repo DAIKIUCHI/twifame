@@ -1,0 +1,52 @@
+<!--Twitterのアイコン画像と名前-->
+<div class="row center profile">
+  <p><%= image_tag current_user.image.sub(/_normal/, ''), id:"user-image" %></p>
+    <h4><%= current_user.name %></h4>
+  <h5 id="nickname">@<%= current_user.nickname %></h5>
+</div>
+
+<ul class="list-group">
+	<li class="list-group-item">1.ツイート内容を入力</li>
+	<li class="list-group-item">2.フレームを選択</li>
+	<li class="list-group-item">3. [ツイートする] ボタンを押す</li>
+  <li class="list-group-item">4.ツイート完了！！</li>
+</ul>
+
+<!--ツイートの入力フォーム-->
+<div class="form-group">
+  <%= form_for(@tweet) do |f| %>
+    <div><%= f.text_area :comment, rows:"6", class:"form-control", id:"tweet-area"%></div>
+    <div id="m-top">
+      <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "icon1.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "icon2.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "icon3.png", id:"icon" %></label>
+      <h6 id="m-top">※フレームを選択</h6>
+    </div>
+        <div>
+      <%= image_tag "test1.png", class:"center-block", id:"test1", style:"display: none;" %>
+      <%= image_tag "test2.png", class:"center-block", id:"test2", style:"display: none;" %>
+      <%= image_tag "test3.png", class:"center-block", id:"test3", style:"display: none;" %>
+    </div>
+    <p class="center" id="m-top"><%= f.submit "ツイートする", class: "btn btn-info btn-lg" %></p>
+  <% end %>
+</div>
+
+<!-- ここからjQuery -->
+<script>
+$('#tweet_image_appassetsimagestest1png').on('click', function() {
+  $("#test1").show();
+  $("#test2").hide();
+  $("#test3").hide();
+});
+$('#tweet_image_appassetsimagestest2png').on('click', function() {
+  $("#test2").show();
+  $("#test1").hide();
+  $("#test3").hide();
+});
+$('#tweet_image_appassetsimagestest3png').on('click', function() {
+  $("#test3").show();
+  $("#test1").hide();
+  $("#test2").hide();
+});
+</script>
+<!-- ここまでjQuery -->
