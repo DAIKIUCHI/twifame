@@ -1,5 +1,5 @@
 <!--Twitterのアイコン画像と名前-->
-<div class="row center profile">
+<div class="center profile">
   <p><%= image_tag current_user.image.sub(/_normal/, ''), id:"user-image" %></p>
     <h4><%= current_user.name %></h4>
   <h5 id="nickname">@<%= current_user.nickname %></h5>
@@ -16,16 +16,22 @@
 <div class="form-group">
   <%= form_for(@tweet) do |f| %>
     <div><%= f.text_area :comment, rows:"6", class:"form-control", id:"tweet-area"%></div>
-    <div id="m-top">
-      <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "icon1.png", id:"icon" %></label>
-      <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "icon2.png", id:"icon" %></label>
-      <label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "icon3.png", id:"icon" %></label>
+    <div class="center" id="m-top">
+      <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "blue.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "green.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "pink.png", id:"icon" %></label>
       <h6 id="m-top">※フレームを選択</h6>
     </div>
         <div>
       <%= image_tag "test1.png", class:"center-block", id:"test1", style:"display: none;" %>
-      <%= image_tag "test2.png", class:"center-block", id:"test2", style:"display: none;" %>
-      <%= image_tag "test3.png", class:"center-block", id:"test3", style:"display: none;" %>
+      <ul class="list-group">
+        <li class="list-group-item" id="test2", style="display: none; margin: 50px;">ごめんなさい。フレーム準備中です・・・</li>
+      </ul>
+      <% image_tag "test2.png", class:"center-block", id:"test2", style:"display: none;" %>
+      <ul class="list-group">
+        <li class="list-group-item" id="test3", style="display: none; margin: 50px;">ごめんなさい。フレーム準備中です・・・</li>
+      </ul>
+      <% image_tag "test3.png", class:"center-block", id:"test3", style:"display: none;" %>
     </div>
     <p class="center" id="m-top"><%= f.submit "ツイートする", class: "btn btn-info btn-lg" %></p>
   <% end %>

@@ -106,15 +106,15 @@ img {
 }
 
 #icon {
-  width: 50px;
-  height: auto;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
 }
 
 #description {
   margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 3%;
+  border-radius: 4px;
 }
 
 #user-image {
@@ -138,6 +138,10 @@ img {
 
 .profile {
   margin-bottom: 30px;
+  // padding: 5px;
+  // background-color: #fff;
+  // border: 1px solid #ddd;
+  // border-radius: 3px;
 }
 
 .message {
