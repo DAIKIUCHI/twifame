@@ -1,14 +1,13 @@
 <% provide(:title, @user.name) %>
-<div class="user">
-  <h1><%= @user.name %></h1>
-</div>
 
-<ol class="tweets">
+<ul class="">
   <% @tweets.each do |tweet| %>
     <li>
-      <%= tweet.comment %>
-      <%= tweet.content %>
+      <div class=""><%= image_tag tweet.picture.url %></div>
+      Posted <%= time_ago_in_words(tweet.created_at) %> ago.
     </li>
   <% end %>
-</ol>
+</ul>
+
+<%= link_to "delete", user_registration_path, method: :delete, data: { confirm: "You sure?" } %>
   

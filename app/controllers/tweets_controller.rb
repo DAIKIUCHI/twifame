@@ -15,15 +15,14 @@ class TweetsController < ApplicationController
 
   def new
     @tweet = Tweet.new
-    # @tweet_text = params[:content]
   end
   
   def create
     @tweet = current_user.tweets.build(tweet_params)
     @tweet.picture = Image_build(@tweet.comment)
     @tweet.save
-    flash[:success] = "でけた"
-    @twitter.update_with_media("", "#{@tweet.picture.path}")
+    flash[:success] = "ツイートしました"
+    @twitter.update_with_media("#ついわく", "#{@tweet.picture.path}")
     redirect_to @tweet
   end
 
@@ -65,26 +64,26 @@ class TweetsController < ApplicationController
       params.require(:tweet).permit(:comment, :picture, :image)
     end
 
-        # 設定関連の値を代入
-        def configuration(text)
-          @image.combine_options do |config|
-            config.font FONT
-            config.gravity GRAVITY
-            config.pointsize @font_size
-            config.draw "text #{TEXT_POSITION} '#{text}'"
-          end
-        end
-    
-        # 背景にいい感じに収まるように文字を調整して返却
-        def prepare_text(text)
-          if text.length >= 90
-            @font_size = 20
-            indention_count = 40
-          else
-            indention_count = 20
-            @font_size = 40
-          end
-          text.scan(/.{1,#{indention_count}}/)[0...ROW_LIMIT].join("\n")
-        end
+    # 設定関連の値を代入
+    def configuration(text)
+      @image.combine_options do |config|
+        config.font FONT
+        config.gravity GRAVITY
+        config.pointsize @font_size
+        config.draw "text #{TEXT_POSITION} '#{text}'"
+      end
+    end
+
+    # 背景にいい感じに収まるように文字を調整して返却
+    def prepare_text(text)
+      if text.length >= 90
+        @font_size = 20
+        indention_count = 40
+      else
+        indention_count = 20
+        @font_size = 40
+      end
+      text.scan(/.{1,#{indention_count}}/)[0...ROW_LIMIT].join("\n")
+    end
   
 end
