@@ -12,11 +12,16 @@
   <li class="list-group-item">4.ツイート完了！！</li>
 </ul>
 
+
 <!--ツイートの入力フォーム-->
 <div class="form-group">
   <%= form_for(@tweet) do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
-     <div><%= f.text_area :comment, rows:"8", class:"form-control", id:"tweet-area", maxlength:"100" %></div>
+    <div><%= f.text_area :comment, rows:"8", class:"form-control js-count", id:"tweet-area", maxlength:"100" %></div>
+    <!--文字数カウント-->
+    <div class="counter">
+      <span class="show-count">0</span>/100
+    </div>
     <div class="center" id="m-top">
       <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "blue.png", id:"icon" %></label>
       <label><%= f.radio_button :image, "./app/assets/images/sample.png" %><%= image_tag "green.png", id:"icon" %></label>
@@ -41,7 +46,7 @@
 <!-- ここからjQuery -->
 <script>
 $(function(){
-  $('#js-count').keyup(function(){
+  $('.js-count').keyup(function(){
     var count = $(this).val().length;
     $('.show-count').text(count);
   });
