@@ -16,7 +16,7 @@
 <div class="form-group">
   <%= form_for(@tweet) do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
-    <div><%= f.text_area :comment, rows:"8", class:"form-control", id:"js-count", maxlength:"100" %></div>
+    <div><%= f.text_area :comment, rows:"8", class:"form-control", id:"js-count tweet-area", maxlength:"100" %></div>
     <!--文字数カウント-->
     <div class="counter">
       <span class="show-count">0</span>/100
