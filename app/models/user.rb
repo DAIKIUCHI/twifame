@@ -34,5 +34,3 @@ class User < ApplicationRecord
     "#{auth.uid}-#{auth.provider}@example.com"
   end
 end
-
-Rails.application.message_verifier('secret_key').generate({ token: 'i am bob' })

@@ -19,11 +19,21 @@ class TweetsController < ApplicationController
   
   def create
     @tweet = current_user.tweets.build(tweet_params)
-    @tweet.picture = Image_build(@tweet.comment)
-    @tweet.save
-    flash[:success] = "ツイートしました"
-    @twitter.update_with_media("#ついわく", "#{@tweet.picture.path}")
-    redirect_to @tweet
+
+    # @tweet.imageは、この時点で選択しておかないとImage_buildメソッドができないため、ここで判定する
+    unless @tweet.image
+      flash.now[:danger] = "フレームを選択してください"
+      render 'new'
+    else
+      @tweet.picture = Image_build(@tweet.comment)
+      if @tweet.save
+        flash[:success] = "ツイートしました"
+        @twitter.update_with_media("#ついわく", "#{@tweet.picture.path}")
+        redirect_to @tweet
+      else
+        render 'new'
+      end
+    end
   end
 
   def test
@@ -76,12 +86,12 @@ class TweetsController < ApplicationController
 
     # 背景にいい感じに収まるように文字を調整して返却
     def prepare_text(text)
-      if text.length >= 90
-        @font_size = 20
-        indention_count = 40
+      if text.length >= 40
+        @font_size = 50
+        indention_count = 15
       else
-        indention_count = 20
-        @font_size = 40
+        indention_count = 12
+        @font_size = 70
       end
       text.scan(/.{1,#{indention_count}}/)[0...ROW_LIMIT].join("\n")
     end

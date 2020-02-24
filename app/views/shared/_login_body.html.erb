@@ -15,11 +15,16 @@
 <!--ツイートの入力フォーム-->
 <div class="form-group">
   <%= form_for(@tweet) do |f| %>
-    <div><%= f.text_area :comment, rows:"6", class:"form-control", id:"tweet-area"%></div>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div><%= f.text_area :comment, rows:"8", class:"form-control", id:"js-count", maxlength:"100" %></div>
+    <!--文字数カウント-->
+    <div class="counter">
+      <span class="show-count">0</span>/100
+    </div>
     <div class="center" id="m-top">
       <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "blue.png", id:"icon" %></label>
-      <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "green.png", id:"icon" %></label>
-      <label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "pink.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/sample.png" %><%= image_tag "green.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/sample.png" %><%= image_tag "pink.png", id:"icon" %></label>
       <h6 id="m-top">※フレームを選択</h6>
     </div>
         <div>
@@ -39,17 +44,24 @@
 
 <!-- ここからjQuery -->
 <script>
+$(function(){
+  $('#js-count').keyup(function(){
+    var count = $(this).val().length;
+    $('.show-count').text(count);
+  });
+});
+
 $('#tweet_image_appassetsimagestest1png').on('click', function() {
   $("#test1").show();
   $("#test2").hide();
   $("#test3").hide();
 });
-$('#tweet_image_appassetsimagestest2png').on('click', function() {
+$('#tweet_image_appassetsimagessamplepng').on('click', function() {
   $("#test2").show();
   $("#test1").hide();
   $("#test3").hide();
 });
-$('#tweet_image_appassetsimagestest3png').on('click', function() {
+$('#tweet_image_appassetsimagessamplepng').on('click', function() {
   $("#test3").show();
   $("#test1").hide();
   $("#test2").hide();
