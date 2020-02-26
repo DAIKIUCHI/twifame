@@ -3,6 +3,9 @@
   <p><%= image_tag current_user.image.sub(/_normal/, ''), id:"user-image" %></p>
     <h4><%= current_user.name %></h4>
   <h5 id="nickname">@<%= current_user.nickname %></h5>
+  <%= link_to @twlink, target: :_blank do %>
+    <i class="fab fa-twitter fa-2x my-gray"></i>
+  <% end %>
 </div>
 
 <ul class="list-group">
