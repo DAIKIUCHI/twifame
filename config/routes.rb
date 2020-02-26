@@ -17,12 +17,5 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/delete'
   resources :users, only: [:show]
-
-  resources :tweets do
-    collection do
-      get 'reply'
-      get 'test'
-      get 'form'
-    end
-  end
+  resources :tweets
 end

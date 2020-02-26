@@ -10,6 +10,7 @@ gem 'coffee-rails', '4.2.2'
 gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.6.4'
+gem 'font-awesome-sass', '~> 5.4.1'
 
 gem 'devise'
 gem 'omniauth-twitter'

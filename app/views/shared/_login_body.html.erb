@@ -3,6 +3,7 @@
   <p><%= image_tag current_user.image.sub(/_normal/, ''), id:"user-image" %></p>
     <h4><%= current_user.name %></h4>
   <h5 id="nickname">@<%= current_user.nickname %></h5>
+
 </div>
 
 <ul class="list-group">
@@ -23,12 +24,12 @@
       <span class="show-count">0</span>/100
     </div>
     <div class="center" id="m-top">
-      <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "blue.png", id:"icon" %></label>
+     <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "blue.png", id:"icon" %></label>
       <label><%= f.radio_button :image, "./app/assets/images/sample.png" %><%= image_tag "green.png", id:"icon" %></label>
-      <label><%= f.radio_button :image, "./app/assets/images/sample.png" %><%= image_tag "pink.png", id:"icon" %></label>
+      <label><%= f.radio_button :image, "./app/assets/images/sample1.png" %><%= image_tag "pink.png", id:"icon" %></label>
       <h6 id="m-top">※フレームを選択</h6>
     </div>
-        <div>
+         <div>
       <%= image_tag "test1.png", class:"center-block", id:"test1", style:"display: none;" %>
       <ul class="list-group">
         <li class="list-group-item" id="test2", style="display: none; margin: 50px;">ごめんなさい。<br>フレーム準備中です・・・</li>
@@ -62,7 +63,7 @@ $('#tweet_image_appassetsimagessamplepng').on('click', function() {
   $("#test1").hide();
   $("#test3").hide();
 });
-$('#tweet_image_appassetsimagessamplepng').on('click', function() {
+$('#tweet_image_appassetsimagessample1png').on('click', function() {
   $("#test3").show();
   $("#test1").hide();
   $("#test2").hide();
