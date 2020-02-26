@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
       @tweet.picture = Image_build(@tweet.comment)
       if @tweet.save
         flash[:success] = "ツイートしました"
-        @twitter.update_with_media("#ついわく", "#{@tweet.picture.path}")
+        @twitter.update_with_media("#ついわく\nhttps://www.tsuiwaku.com/", "#{@tweet.picture.path}")
         redirect_to @tweet
       else
         render 'new'
