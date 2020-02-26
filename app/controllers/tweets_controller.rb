@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_twitter_client, only: [:new, :create]
+  before_action :set_twitter_client, only: [:new, :create, :show]
 
   # BASE_IMAGE_PATH = './app/assets/images/test3.png'.freeze
   # BASE_IMAGE_PATH = @tweet.picture.path
@@ -37,21 +37,13 @@ class TweetsController < ApplicationController
     end
   end
 
-  def test
-    # images = []
-    # images << File.new('./public/uploads/tweet/picture/12/mini_magick20200118-57398-148xxil.png')
-
-    # res = @twitter.update_with_media("test #{Time.now}", images)
-    # puts res
-  end
-
-
   def index
     @tweets = Tweet.all
   end
 
   def show
     @tweet = Tweet.find(params[:id])
+    @twlink = @twitter.user.url.to_s
   end
 
   def Image_build(text)

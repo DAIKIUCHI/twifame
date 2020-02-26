@@ -1,4 +1,9 @@
 <% provide(:title, "ツイート完了") %>
 <div class="center"><%= image_tag @tweet.picture.url %></div>
-<p class="center" id="gohome"><%= link_to "ホームへもどる", root_path, class: "btn btn-info btn-lg" %></p>
 
+<div class="center" id="gohome">
+<%= link_to @twlink, target: :_blank do %>
+  <i class="fab fa-twitter fa-2x my-gray"></i>
+<% end %>
+</div>
+<p class="center" id="gohome"><%= link_to "ホームへもどる", root_path %></p>
